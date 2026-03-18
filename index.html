@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ton appel est confirmé 🎉 — Femmes Choisies by Yakine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D4A0;
+      --gold-pale: #F7F0E0;
+      --bg: #FAFAF8;
+      --card-bg: #FFFFFF;
+      --testimonial-bg: #F5F3EE;
+      --text-dark: #1C1C1E;
+      --text-mid: #6B7280;
+      --text-light: #9CA3AF;
+      --whatsapp: #25D366;
+      --radius: 16px;
+      --shadow: 0 2px 20px rgba(0,0,0,0.07);
+    }
+
+    body {
+      background-color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      text-align: center;
+      padding: 40px 0 32px;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    .header-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .header-divider .line {
+      height: 1px;
+      width: 48px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .header-divider .line.right {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .header-divider .diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      text-align: center;
+      padding: 48px 32px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .check-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--gold-pale), #FFF8E7);
+      border-radius: 50%;
+      margin-bottom: 24px;
+      border: 2px solid var(--gold-light);
+    }
+
+    .check-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-mid);
+      font-weight: 400;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── STEP BADGE ─── */
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-light);
+      color: #8B6914;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .step-badge .step-dot {
+      width: 18px;
+      height: 18px;
+      background: var(--gold);
+      color: #fff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── CARDS ─── */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 4vw, 24px);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    /* ─── GOLD TITLE ACCENT ─── */
+    .title-accent {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .title-accent .accent-bar {
+      width: 3px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ─── VIDEO WRAPPER ─── */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ─── WHATSAPP BUTTON ─── */
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--whatsapp);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 12px;
+      width: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.30);
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.40);
+    }
+
+    .btn-whatsapp:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    /* ─── TESTIMONIAL ─── */
+    .card-testimonial {
+      background: var(--testimonial-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .quote-icon {
+      margin-bottom: 18px;
+    }
+
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 20px 0 0;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 520px) {
+      .card {
+        padding: 28px 20px;
+      }
+
+      .card-testimonial {
+        padding: 28px 20px;
+      }
+
+      .hero {
+        padding: 36px 20px;
+      }
+
+      .btn-whatsapp {
+        font-size: 15px;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- ─── HEADER ─── -->
+    <header>
+      <div class="brand-name">Femmes Choisies by Yakine</div>
+      <div class="header-divider">
+        <span class="line"></span>
+        <span class="diamond"></span>
+        <span class="line right"></span>
+      </div>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+      <div class="check-icon">
+        <!-- Gold checkmark SVG -->
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <path d="M9.5 17.5L14.5 22.5L24.5 12" stroke="#C9A84C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Ton appel est confirmé 🎉</h1>
+      <p>Je suis tellement contente de te retrouver bientôt. Suis bien les deux étapes ci-dessous pour qu'on soit prêtes toutes les deux.</p>
+    </section>
+
+    <!-- ─── ÉTAPE 1 — VIDÉO ─── -->
+    <div class="card">
+      <div class="step-badge">
+        <span class="step-dot">1</span>
+        Étape 1
+      </div>
+      <div class="title-accent">
+        <div class="accent-bar"></div>
+        <h2>Regarde cette vidéo avant notre appel</h2>
+      </div>
+      <p>Dans cette vidéo, je t'explique exactement comment notre appel va se passer et comment te préparer pour en tirer le maximum.</p>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.tella.tv/video/vid_cmkmtmidi027y04k029do86a2/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0&o=1"
+          allowfullscreen
+          allowtransparency>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- ─── ÉTAPE 2 — WHATSAPP ─── -->
+    <div class="card">
+      <div class="step-badge">
+        <span class="step-dot">2</span>
+        Étape 2
+      </div>
+      <div class="title-accent">
+        <div class="accent-bar"></div>
+        <h2>Confirme-moi ta réservation sur WhatsApp</h2>
+      </div>
+      <p>Pour que je sois bien au courant et qu'on puisse se retrouver dans les meilleures conditions, envoie-moi un message rapide sur WhatsApp.</p>
+      <a
+        class="btn-whatsapp"
+        href="https://wa.me/33698597972?text=Hey%20Yakine%2C%20j%27ai%20r%C3%A9serv%C3%A9%20mon%20appel%20avec%20toi%20!%20%F0%9F%8E%89"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <!-- WhatsApp SVG inline -->
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Envoyer un message à Yakine
+      </a>
+    </div>
+
+    <!-- ─── TÉMOIGNAGE ─── -->
+    <div class="card-testimonial">
+      <div class="quote-icon">
+        <!-- Gold quote mark SVG -->
+        <svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 24V14.4C0 10.4 1.06667 7.06667 3.2 4.4C5.33333 1.6 8.26667 0 12 0V4C9.86667 4 8.13333 4.93333 6.8 6.8C5.6 8.53333 5 10.6667 5 13.2H10V24H0ZM18 24V14.4C18 10.4 19.0667 7.06667 21.2 4.4C23.3333 1.6 26.2667 0 30 0V4C27.8667 4 26.1333 4.93333 24.8 6.8C23.6 8.53333 23 10.6667 23 13.2H28V24H18Z" fill="#C9A84C" opacity="0.5"/>
+        </svg>
+      </div>
+      <p class="testimonial-text">Un témoignage inspirant arrive bientôt…</p>
+      <!-- REMPLACER PAR VRAI TÉMOIGNAGE -->
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <p>© 2025 Femmes Choisies by Yakine — Tous droits réservés</p>
+    </footer>
+
+  </div>
+</body>
+</html>
