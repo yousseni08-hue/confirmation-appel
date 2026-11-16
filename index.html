@@ -4,469 +4,256 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Appel confirmé — FEMME-CHOISIE™</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0A0509" />
+  <link rel="icon" href="img/favicon-48.png" sizes="48x48" />
+  <link rel="icon" href="img/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* DA CHOOSEN : charbon tiède, halo rose, verre translucide, police système */
     :root {
-      --gold: #B8973A;
-      --gold-bright: #D4AC4E;
-      --gold-muted: #C9A84C;
-      --gold-light: #E8D4A0;
-      --gold-pale: #F5EDD8;
-      --bg: #F9F7F3;
-      --bg-dark: #F2EFE8;
-      --card: #FFFFFF;
-      --text: #18181B;
-      --text-mid: #52525B;
-      --text-soft: #A1A1AA;
+      --bg: #0A0509;
+      --bg-soft: #140A11;
+      --text: rgba(255,255,255,.96);
+      --text-mid: rgba(255,255,255,.62);
+      --text-soft: rgba(255,255,255,.46);
+      --accent: #FB7185;
+      --deep: #E11D48;
+      --mid: #9D174D;
+      --accent-light: #FDA4AF;
+      --glass: rgba(255,255,255,.055);
+      --stroke: rgba(255,255,255,.11);
+      --stroke-top: rgba(255,255,255,.18);
       --whatsapp: #22C55E;
-      --r: 4px;
-      --r-lg: 12px;
+      --r-lg: 24px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Roboto, Arial, sans-serif;
+      color-scheme: dark;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--bg); }
 
     body {
       background: var(--bg);
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Grain overlay ── */
+    /* Halo rose en haut de page */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.022;
+      left: 50%; top: -220px;
+      width: 760px; height: 520px;
+      transform: translateX(-50%);
+      background: radial-gradient(closest-side, rgba(225,29,72,.42), rgba(251,113,133,.14) 55%, transparent);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* ── Progress bar ── */
     #progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%);
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--deep));
       z-index: 100;
       transition: width 0.08s linear;
     }
 
-    /* ── Wrapper ── */
-    .wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 660px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
+    .wrap { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; padding: 0 24px 80px; }
 
-    /* ─────────────────────────────
-       HEADER
-    ───────────────────────────── */
-    header {
-      padding: 52px 0 44px;
-      text-align: center;
-    }
+    /* HEADER */
+    header { padding: 44px 0 36px; text-align: center; }
 
     .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 11px;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--text-mid);
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font);
+      font-weight: 700; font-size: 12px;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--text);
     }
-
-    .brand sup {
-      font-size: 8px;
-      letter-spacing: 0;
-      vertical-align: super;
+    .brand::before {
+      content: ""; flex: 0 0 24px; width: 24px; height: 24px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.75), rgba(255,255,255,0) 38%), linear-gradient(140deg, #FB7185, #E11D48);
+      box-shadow: 0 0 18px rgba(225,29,72,.55);
     }
+    .brand sup { font-size: 8px; letter-spacing: 0; vertical-align: super; }
 
-    .rule {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 14px;
-    }
+    .rule { display: none; }
 
-    .rule-line {
-      height: 1px;
-      width: 56px;
-      background: linear-gradient(to right, transparent, var(--gold-muted));
-    }
-
-    .rule-line.r { background: linear-gradient(to left, transparent, var(--gold-muted)); }
-
-    .rule-gem {
-      width: 5px; height: 5px;
-      background: var(--gold-muted);
-      transform: rotate(45deg);
-    }
-
-    /* ─────────────────────────────
-       HERO
-    ───────────────────────────── */
-    .hero {
-      background: var(--card);
-      border: 1px solid rgba(184,151,58,0.18);
+    /* Verre commun */
+    .hero, .card, .testimonial {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-top-color: var(--stroke-top);
       border-radius: var(--r-lg);
-      padding: 56px 40px 48px;
-      text-align: center;
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 80px -30px rgba(225,29,72,.45);
       margin-bottom: 16px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-gold-line {
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 120px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
-    }
+    /* HERO */
+    .hero { padding: 52px 40px 46px; text-align: center; }
+    .hero-gold-line, .card-inner-line { display: none; }
 
     .seal {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      border: 1px solid var(--gold-light);
-      background: linear-gradient(145deg, #FFFDF7, var(--gold-pale));
-      margin-bottom: 32px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.55), rgba(255,255,255,0) 40%), linear-gradient(140deg, #FB7185, #E11D48 60%, #9D174D);
+      margin-bottom: 30px;
       animation: seal-glow 4s ease-in-out infinite;
     }
-
     @keyframes seal-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(184,151,58,0.12), 0 8px 32px rgba(0,0,0,0.06); }
-      50%       { box-shadow: 0 0 0 10px rgba(184,151,58,0), 0 8px 32px rgba(0,0,0,0.06); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(251,113,133,.28), 0 0 34px rgba(225,29,72,.55); }
+      50%       { box-shadow: 0 0 0 12px rgba(251,113,133,0), 0 0 34px rgba(225,29,72,.55); }
     }
-
     .seal svg { width: 38px; height: 38px; }
-
-    .check-circle { fill: none; stroke: var(--gold-muted); stroke-width: 1.2; }
+    .check-circle { fill: none; stroke: rgba(255,255,255,.55); stroke-width: 1.2; }
     .check-mark {
-      fill: none; stroke: var(--gold-muted); stroke-width: 2;
+      fill: none; stroke: #fff; stroke-width: 2.4;
       stroke-linecap: round; stroke-linejoin: round;
       stroke-dasharray: 28; stroke-dashoffset: 28;
       animation: draw 0.55s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
     }
-
     @keyframes draw { to { stroke-dashoffset: 0; } }
 
     .hero-eyebrow {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-muted);
-      margin-bottom: 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent-light); margin-bottom: 14px;
     }
-
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(32px, 7vw, 44px);
-      line-height: 1.15;
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: clamp(30px, 7vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
       color: var(--text);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+      text-wrap: balance;
     }
-
     .hero p {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-mid);
-      max-width: 440px;
-      margin: 0 auto;
-      font-weight: 300;
+      font-size: 16px; line-height: 1.65; color: var(--text-mid);
+      max-width: 440px; margin: 0 auto; font-weight: 400;
     }
 
-    /* ─────────────────────────────
-       CARDS
-    ───────────────────────────── */
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(184,151,58,0.14);
-      border-radius: var(--r-lg);
-      padding: 40px 36px;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-    }
+    /* CARDS */
+    .card { padding: 38px 34px; }
 
-    .card-inner-line {
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 80px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold-muted), transparent);
-    }
-
-    /* Step number — large ghost number */
     .step-number {
-      position: absolute;
-      top: 20px; right: 28px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 96px;
-      font-weight: 300;
-      color: var(--gold-pale);
-      line-height: 1;
-      user-select: none;
-      pointer-events: none;
+      position: absolute; top: 18px; right: 26px;
+      font-family: var(--font);
+      font-size: 88px; font-weight: 800; letter-spacing: -.04em;
+      color: rgba(255,255,255,.05);
+      line-height: 1; user-select: none; pointer-events: none;
     }
 
-    .step-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
+    .step-label { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
     .step-label-dot {
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      background: var(--text);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 0;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: linear-gradient(140deg, #FB7185, #E11D48);
+      box-shadow: 0 0 14px rgba(225,29,72,.5);
+      color: #fff; font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
     }
-
     .step-label-text {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
       color: var(--text-mid);
     }
 
     .card h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
+      font-family: var(--font);
+      font-weight: 800;
       font-size: clamp(22px, 4.5vw, 28px);
-      line-height: 1.25;
-      color: var(--text);
-      margin-bottom: 14px;
-      letter-spacing: -0.01em;
+      line-height: 1.2; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: 14px;
     }
-
     .gold-rule {
-      width: 36px; height: 1.5px;
-      background: var(--gold-muted);
+      width: 36px; height: 3px; border-radius: 3px;
+      background: linear-gradient(90deg, #FDA4AF, #FB7185 45%, #E11D48);
       margin-bottom: 18px;
-      border-radius: 1px;
     }
+    .card p { font-size: 15px; font-weight: 400; color: var(--text-mid); line-height: 1.7; margin-bottom: 26px; }
 
-    .card p {
-      font-size: 14.5px;
-      font-weight: 300;
-      color: var(--text-mid);
-      line-height: 1.85;
-      margin-bottom: 28px;
-    }
-
-    /* ─────────────────────────────
-       VIDEO
-    ───────────────────────────── */
+    /* VIDEO */
     .video-shell {
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      position: relative;
-      box-shadow: 0 2px 40px rgba(0,0,0,0.11);
+      border-radius: 16px; overflow: hidden; aspect-ratio: 16/9; position: relative;
+      background: #000; border: 1px solid var(--stroke);
     }
+    .video-shell iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-    .video-shell iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
-
-    /* ─────────────────────────────
-       WHATSAPP BUTTON
-    ───────────────────────────── */
+    /* BOUTON WHATSAPP = bouton principal */
     .btn-wa {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      padding: 18px 24px;
-      background: #18181B;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; min-height: 60px; padding: 12px 24px;
+      background: linear-gradient(135deg, #FB7185, #E11D48 55%, #9D174D);
       color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 14.5px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-family: var(--font); font-size: 16px; font-weight: 700; letter-spacing: 0;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.2s, transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      position: relative;
-      overflow: hidden;
+      border-radius: 999px;
+      box-shadow: 0 14px 40px -10px rgba(225,29,72,.75), inset 0 1px 0 rgba(255,255,255,.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
       -webkit-tap-highlight-color: transparent;
     }
-
     .btn-wa::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.06) 50%, transparent 70%);
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.14) 50%, transparent 70%);
       transform: translateX(-100%);
       animation: sheen 4s 2s ease-in-out infinite;
     }
-
-    @keyframes sheen {
-      0%   { transform: translateX(-100%); }
-      100% { transform: translateX(200%); }
-    }
-
-    .btn-wa:hover {
-      background: #27272A;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 36px rgba(0,0,0,0.24);
-    }
-
-    .btn-wa:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.16);
-    }
+    @keyframes sheen { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+    .btn-wa:hover { transform: translateY(-1px); box-shadow: 0 18px 46px -10px rgba(225,29,72,.85), inset 0 1px 0 rgba(255,255,255,.35); }
+    .btn-wa:active { transform: translateY(0); }
+    .btn-wa:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
     .btn-wa-icon {
-      width: 20px; height: 20px;
-      background: var(--whatsapp);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 24px; height: 24px; background: var(--whatsapp); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(255,255,255,.25);
     }
+    .btn-wa-icon svg { width: 13px; height: 13px; fill: #fff; }
+    .btn-wa-label { flex: 1; text-align: left; line-height: 1.25; }
+    .btn-wa-sub { display: block; font-size: 11.5px; font-weight: 500; color: rgba(255,255,255,.78); margin-top: 2px; }
+    .btn-wa-arrow { opacity: .8; font-size: 18px; line-height: 1; }
 
-    .btn-wa-icon svg { width: 12px; height: 12px; fill: #fff; }
-
-    .btn-wa-label { flex: 1; text-align: left; }
-    .btn-wa-sub {
-      display: block;
-      font-size: 10px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 0.06em;
-      margin-top: 1px;
-    }
-
-    .btn-wa-arrow {
-      opacity: 0.4;
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    /* ─────────────────────────────
-       TESTIMONIAL
-    ───────────────────────────── */
-    .testimonial {
-      background: linear-gradient(160deg, #F8F5EE, #F2EFE8);
-      border: 1px solid rgba(184,151,58,0.18);
-      border-radius: var(--r-lg);
-      padding: 40px 36px;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial .card-inner-line { opacity: 0.7; }
-
+    /* TÉMOIGNAGE */
+    .testimonial { padding: 38px 34px; }
     .quote-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 96px;
-      line-height: 0.6;
-      color: var(--gold-light);
-      font-weight: 400;
-      margin-bottom: 20px;
-      display: block;
-      user-select: none;
+      font-family: var(--font); font-size: 80px; line-height: .7; font-weight: 800;
+      background: linear-gradient(120deg, #FDA4AF, #FB7185 45%, #E11D48);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 14px; display: block; user-select: none;
     }
-
     .testimonial-body {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: #6B6550;
-      letter-spacing: 0.01em;
+      font-family: var(--font); font-style: normal; font-size: 19px; font-weight: 600;
+      line-height: 1.55; letter-spacing: -.01em; color: var(--text);
     }
 
-    /* ─────────────────────────────
-       FOOTER
-    ───────────────────────────── */
-    footer {
-      text-align: center;
-      padding-top: 32px;
-    }
+    /* FOOTER */
+    footer { text-align: center; padding-top: 30px; }
+    footer p { font-size: 12px; color: var(--text-soft); letter-spacing: .02em; }
+    footer strong { color: var(--accent-light); font-weight: 700; }
 
-    footer p {
-      font-size: 11px;
-      color: var(--text-soft);
-      letter-spacing: 0.06em;
-    }
-
-    footer strong {
-      color: var(--gold-muted);
-      font-weight: 500;
-    }
-
-    /* ─────────────────────────────
-       REVEAL
-    ───────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
-                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
-    }
-
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
     .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.08s; }
-    .d2 { transition-delay: 0.16s; }
-    .d3 { transition-delay: 0.24s; }
-    .d4 { transition-delay: 0.32s; }
-    .d5 { transition-delay: 0.40s; }
+    .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; } .d5 { transition-delay: 0.40s; }
 
-    /* ─────────────────────────────
-       RESPONSIVE
-    ───────────────────────────── */
+    @media (prefers-reduced-motion: reduce) { .btn-wa::before, .seal { animation: none; } }
+
+    /* RESPONSIVE */
     @media (max-width: 540px) {
       .wrap { padding: 0 16px 72px; }
-
-      header { padding: 36px 0 32px; }
-
-      .hero { padding: 44px 24px 40px; }
-
-      .card { padding: 32px 22px; }
-      .testimonial { padding: 32px 22px; }
-
-      .step-number { font-size: 72px; top: 16px; right: 20px; }
-
-      .btn-wa { padding: 16px 18px; }
+      header { padding: 32px 0 26px; }
+      .hero { padding: 42px 22px 38px; }
+      .card, .testimonial { padding: 30px 20px; }
+      .step-number { font-size: 68px; top: 14px; right: 18px; }
+      .btn-wa { padding: 12px 18px; font-size: 15px; }
     }
   </style>
 <!-- Meta Pixel FEMME-CHOISIE™ (Yakine.femmes) : page de confirmation après réservation Calendly -->
